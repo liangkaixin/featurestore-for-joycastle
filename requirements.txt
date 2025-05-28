@@ -1,0 +1,7 @@
+simpy
+pandas
+jupyter
+duckdb
+streamlit
+kafka-python
+pyspark
