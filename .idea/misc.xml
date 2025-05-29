@@ -11,7 +11,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (End-to-End-Data-Pipeline)" project-jdk-type="Python SDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" project-jdk-name="Python 3.12 (End-to-End-Data-Pipeline)" project-jdk-type="Python SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
