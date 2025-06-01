@@ -17,3 +17,8 @@ featurestore-for-joycastle/
 │   └── run.sh              # 项目运行脚本
 ```
 ![代码结构.png](docs/%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84.png)
+
+## 运行方式
+```sh
+    python main.py
+```

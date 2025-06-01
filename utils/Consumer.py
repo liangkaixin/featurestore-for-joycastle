@@ -1,4 +1,3 @@
-import json
 import sqlite3
 import time
 import re
@@ -36,7 +35,7 @@ def insert_batch(rows, event_type_):
     if not rows:
         return
     table = f'dwd_{event_type_}'
-    with sqlite3.connect("game_events.db") as conn:
+    with sqlite3.connect("../game_events.db") as conn:
         ensure_table_exists(conn, table)
         conn.executemany(
             f'''INSERT INTO {table} (

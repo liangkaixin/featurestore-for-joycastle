@@ -113,7 +113,7 @@ df_events = pd.DataFrame(event_log)
 start_date = datetime(2023, 1, 1)
 df_events['EventTimestamp'] = df_events['EventTimestamp'].apply(lambda x: start_date + timedelta(seconds=x))
 
-if __name__ == '__main__':
+def main():
     # 初始化 Kafka 生产者（需编码为字节）
     producer = KafkaProducer(
         bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
