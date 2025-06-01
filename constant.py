@@ -1,1 +1,0 @@
-Kafka_topic = 'game_events'

@@ -3,6 +3,11 @@ from datetime import datetime, timedelta
 
 import pandas as pd
 import simpy
+import json
+
+from kafka import KafkaProducer
+
+from utils.constant import KAFKA_TOPIC, KAFKA_BOOTSTRAP_SERVERS
 
 # Constants
 NUM_PLAYERS = 100  # Total number of players to simulate
@@ -108,5 +113,20 @@ df_events = pd.DataFrame(event_log)
 start_date = datetime(2023, 1, 1)
 df_events['EventTimestamp'] = df_events['EventTimestamp'].apply(lambda x: start_date + timedelta(seconds=x))
 
-# Save the DataFrame to a CSV file
-df_events.to_csv('game_events.csv', index=False)
+if __name__ == '__main__':
+    # 初始化 Kafka 生产者（需编码为字节）
+    producer = KafkaProducer(
+        bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
+        value_serializer=lambda v: json.dumps(v).encode('utf-8')
+    )
+
+    # convert timestamp to str for serialize
+    for col in df_events.select_dtypes(include=['datetime64']).columns:
+        df_events[col] = df_events[col].astype(str)
+
+    # 逐行发送到 Kafka topic
+    for _, row in df_events.iterrows():
+        producer.send(KAFKA_TOPIC, value=row.to_dict())
+
+    #  立即发送
+    producer.flush()
