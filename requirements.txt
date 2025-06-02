@@ -2,3 +2,4 @@ kafka~=1.3.5
 kafka-python~=2.2.10
 pandas~=2.2.3
 simpy~=4.1.1
+kafka-python-ng

@@ -19,6 +19,13 @@ featurestore-for-joycastle/
 ![代码结构.png](docs/%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84.png)
 
 ## 运行方式
+### docker部署Kafka + 运行程序 + 部署 Metabase
+
+```shell
+./run.py
+```
+
+### 单独运行程序
 ```sh
     python main.py
 ```
