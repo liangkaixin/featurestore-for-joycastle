@@ -1,3 +1,5 @@
+**详细文档在doc文件夹下**
+
 ## 整体结构
 ```plaintext
 featurestore-for-joycastle/
